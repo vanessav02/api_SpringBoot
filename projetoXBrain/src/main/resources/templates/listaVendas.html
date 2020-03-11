@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Teste</title>
+</head>
+<body>
+  <h2>Lista de Vendas por Vendedor</h2>
+  <div th:unless="${#lists.isEmpty(vendas)}">
+    <dl th:each="venda : ${vendas}">
+      <dt class="realizaVenda">
+        Id da venda: <span th:text="${venda.id}"> </span><br/> 
+        Data: <span th:text="${venda.data}"> </span><br/> 
+        Valor: <span th:text="${venda.valor}"></span><br/> 
+        Vendedor: <span th:text="${venda.vendedor}"></span><br/> 
+      </dt>
+    </dl>
+  </div>
+  <div th:if="${#lists.isEmpty(vendas)}">
+    <p>Nenhuma Venda cadastrada para este Vendedor </p>
+  </div>
+  <hr />
+  <h3>Adicione uma nova Venda para o Vendedor:</h3>
+  <form method="POST">
+    <label for="data">Data da venda:</label> <input type="text" name="data" size="10"></input><br/> 
+    <label for="valor">Valor:</label> <input type="text" name="valor" size="10"></input><br/>  
+    <br /> <input type="submit"></input>
+  </form>
+</body>
+</html>
